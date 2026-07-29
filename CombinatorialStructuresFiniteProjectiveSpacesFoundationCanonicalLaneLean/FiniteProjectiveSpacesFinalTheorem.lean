@@ -1,0 +1,17 @@
+import canonicalLaneMathlib.AdmissibleClass
+import CombinatorialStructuresFiniteProjectiveSpacesFoundationCanonicalLaneLean.CombinatorialProjectiveStructure
+import CombinatorialStructuresFiniteProjectiveSpacesFoundationCanonicalLaneLean.BlockDesignBridge
+
+namespace HautevilleHouse
+namespace CombinatorialStructuresFiniteProjectiveSpacesFoundationCanonicalLaneLean
+
+open HautevilleHouse.CanonicalLaneMathlibCore
+
+def ConstrainedFiniteProjectiveSpaceClosure (A : FiniteProjectiveSpaceAdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_finite_projective_space_endgame (A : FiniteProjectiveSpaceAdmissibleClass) : ConstrainedFiniteProjectiveSpaceClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end CombinatorialStructuresFiniteProjectiveSpacesFoundationCanonicalLaneLean
+end HautevilleHouse
